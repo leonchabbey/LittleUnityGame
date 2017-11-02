@@ -33,10 +33,13 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D rigid;
 
+    private GameManager gameManager;
+
 	// Use this for initialization
 	void Start () {
         rigid = GetComponent<Rigidbody2D>();
         spawnTransform = GameObject.Find("Spawn").transform;
+        gameManager = FindObjectOfType<GameManager>();
 	}
 	
 	// Update is called once per frame
@@ -56,8 +59,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == "Limit")
+        if (collision.tag == "Limit") {
             transform.position = spawnTransform.position;
+            gameManager.PlayerDie();
+        }
     }
 
     private void Fire() {

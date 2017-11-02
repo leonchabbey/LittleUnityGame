@@ -24,10 +24,10 @@ public class GameManager : MonoBehaviour {
 	}
 
     public void PlayerDie() {
-        if(life <= 0) {
-            SceneManager.LoadScene("StartMenu");
+        life--;
+        if (life <= 0) {
+            SceneManager.LoadScene("DieMenu");
         } else {
-            life--;
             updateTextLife();
         }
     }
