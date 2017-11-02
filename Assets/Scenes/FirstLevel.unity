@@ -369,7 +369,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 25, y: 1}
+  m_Size: {x: 300, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &438276011
 Transform:
@@ -378,7 +378,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 438276009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.01, z: -0.005859375}
+  m_LocalPosition: {x: 0, y: -5.55, z: -0.005859375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -513,11 +513,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &855883259 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4419347256236042, guid: a6ba9340bc630f942b1f7acd2a1e92fd,
-    type: 2}
-  m_PrefabInternal: {fileID: 919391385}
 --- !u!1001 &919391385
 Prefab:
   m_ObjectHideFlags: 0
@@ -559,12 +554,32 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114151119888049942, guid: a6ba9340bc630f942b1f7acd2a1e92fd,
         type: 2}
-      propertyPath: positionRaycastJump
+      propertyPath: gunTransform
       value: 
-      objectReference: {fileID: 855883259}
+      objectReference: {fileID: 1043744029}
+    - target: {fileID: 114151119888049942, guid: a6ba9340bc630f942b1f7acd2a1e92fd,
+        type: 2}
+      propertyPath: bulletVelocity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114151119888049942, guid: a6ba9340bc630f942b1f7acd2a1e92fd,
+        type: 2}
+      propertyPath: radiusRaycastJump
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114151119888049942, guid: a6ba9340bc630f942b1f7acd2a1e92fd,
+        type: 2}
+      propertyPath: timeToFire
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6ba9340bc630f942b1f7acd2a1e92fd, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1043744029 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4818218745180530, guid: a6ba9340bc630f942b1f7acd2a1e92fd,
+    type: 2}
+  m_PrefabInternal: {fileID: 919391385}
 --- !u!1 &1111402519
 GameObject:
   m_ObjectHideFlags: 0

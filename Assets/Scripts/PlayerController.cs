@@ -18,6 +18,17 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private LayerMask layerMaskJump;
 
+    [Header("Fire gun super sonic lol boum")]
+    [SerializeField]
+    private GameObject bulletPrefab;
+    [SerializeField]
+    private Transform gunTransform;
+    [SerializeField]
+    private float bulletVelocity = 10;
+    [SerializeField]
+    private float timeToFire = 2;
+    private float lastTimeFire;
+
     private Transform spawnTransform;
 
     private Rigidbody2D rigid;
@@ -39,10 +50,22 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetAxis("Jump") > 0 && onFloor)
             rigid.AddForce(Vector2.up*forceJump, ForceMode2D.Impulse);
+
+        if (Input.GetAxis("Fire1") > 0)
+            Fire();
 	}
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Limit")
             transform.position = spawnTransform.position;
+    }
+
+    private void Fire() {
+        if(Time.realtimeSinceStartup - lastTimeFire > timeToFire) {
+            GameObject bullet = Instantiate(bulletPrefab, gunTransform.position, gunTransform.rotation);
+            bullet.GetComponent<Rigidbody2D>().velocity = gunTransform.right * bulletVelocity;
+            Destroy(bullet, 5);
+            lastTimeFire = Time.realtimeSinceStartup;
+        } 
     }
 }
