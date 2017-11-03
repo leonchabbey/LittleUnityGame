@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-    public void PlayerDie() {
+    public void takeDamage() {
         life--;
         if (life <= 0) {
             SceneManager.LoadScene("DieMenu");
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void updateTextLife()
+    public void updateTextLife()
     {
         textLife.text = TEXT_LIFE + life;
     }

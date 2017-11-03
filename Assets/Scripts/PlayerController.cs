@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    [Header("Stats")]
+    [SerializeField]
+    private float health = 10;
+
     [Header("Physics")]
     [SerializeField]
     private float force = 10;
@@ -61,8 +65,13 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Limit") {
             transform.position = spawnTransform.position;
-            gameManager.PlayerDie();
+            gameManager.takeDamage();
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "BulletEnemy")
+            gameManager.takeDamage();
     }
 
     private void Fire() {
