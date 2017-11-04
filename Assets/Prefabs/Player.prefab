@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114151119888049942}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,14 +82,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1067002940523460}
-  m_LocalRotation: {x: -0, y: -0, z: 0.20534614, w: 0.97868943}
-  m_LocalPosition: {x: 0.89, y: 0.28, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.118181385, w: 0.99299204}
+  m_LocalPosition: {x: 0.738, y: 0.136, z: 0}
   m_LocalScale: {x: 0.98099613, y: 0.23985237, z: 1}
   m_Children:
   - {fileID: 4818218745180530}
   m_Father: {fileID: 4693350564240552}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 23.7}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 13.574}
 --- !u!4 &4419347256236042
 Transform:
   m_ObjectHideFlags: 1
@@ -187,17 +187,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f36832fa9e3027429d94d3989688e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn: {fileID: 0}
+  life: 3
   force: 10
   forceJump: 1
   positionRaycastJump: {fileID: 4419347256236042}
-  radiusRaycastJump: 1
+  radiusRaycastJump: 0.1
   layerMaskJump:
     serializedVersion: 2
     m_Bits: 256
   bulletPrefab: {fileID: 1508545610764160, guid: ba8367fedfdff0749823fa11fdd007d4,
     type: 2}
-  gunPosition: {fileID: 4818218745180530}
-  bulletVelocity: 2
+  gunTransform: {fileID: 4818218745180530}
+  bulletVelocity: 20
+  timeToFire: 1
 --- !u!212 &212431044775588698
 SpriteRenderer:
   m_ObjectHideFlags: 1

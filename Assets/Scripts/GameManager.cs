@@ -6,34 +6,33 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    private int life = 3;
-
     [SerializeField]
-    private Text textLife;
+    private Text playerTextLife;
+
+    private List<EnemyController> enemies = new List<EnemyController>();
 
     private const string TEXT_LIFE = "Life: ";
 
-	// Use this for initialization
-	void Start () {
-        updateTextLife();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void takeDamage() {
-        life--;
-        if (life <= 0) {
-            SceneManager.LoadScene("DieMenu");
-        } else {
-            updateTextLife();
-        }
+    public void playerIsDead() {
+        SceneManager.LoadScene("DieMenu");
     }
 
-    public void updateTextLife()
-    {
-        textLife.text = TEXT_LIFE + life;
+    public void addEnemy(EnemyController enemy) {
+        Debug.Log(enemy);
+        enemies.Add(enemy);
+    }
+
+    public void removeEnemy(EnemyController enemy) {
+        enemies.Remove(enemy);
+        checkEnemies();
+    }
+
+    public void checkEnemies() {
+        if (enemies.Count == 0)
+            SceneManager.LoadScene("WinMenu");
+    }
+
+    public void updatePayerTextLife(int playerLife) {
+        playerTextLife.text = TEXT_LIFE + playerLife;
     }
 }

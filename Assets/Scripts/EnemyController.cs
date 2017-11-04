@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : EntityController {
+
+    [Header("Stats")]
+    [SerializeField]
+    private int life = 2;
 
     [Header("Bullet")]
     [SerializeField]
@@ -17,8 +21,12 @@ public class EnemyController : MonoBehaviour {
     private float timeToFire = 2;
     private float lastTimeFire;
 
-	// Use this for initialization
-	void Start () {
+    private GameManager gameManager;
+
+    // Use this for initialization
+    void Start () {
+        gameManager = FindObjectOfType<GameManager>();
+        gameManager.addEnemy(this);
         StartCoroutine(Fire());
 	}
 	
@@ -38,5 +46,24 @@ public class EnemyController : MonoBehaviour {
                 Destroy(bullet, 5);
             }
         }
+    }
+
+    private void takeDamage() {
+        life--;
+
+        if (life <= 0) {
+            gameManager.removeEnemy(this);
+            //Destroy(this);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "BulletPlayer")
+            takeDamage();
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        outOfWorld(collision);
     }
 }

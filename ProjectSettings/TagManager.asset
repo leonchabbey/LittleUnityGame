@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Limit
   - BulletEnemy
   - BulletPlayer
   - Enemy
+  - WorldLimit
   layers:
   - Default
   - TransparentFX

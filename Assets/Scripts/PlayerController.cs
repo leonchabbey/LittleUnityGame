@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : EntityController {
+
+    [Header("Stats")]
+    [SerializeField]
+    private int life = 3;
 
     [Header("Physics")]
     [SerializeField]
@@ -29,8 +33,6 @@ public class PlayerController : MonoBehaviour {
     private float timeToFire = 2;
     private float lastTimeFire;
 
-    private Transform spawnTransform;
-
     private Rigidbody2D rigid;
 
     private GameManager gameManager;
@@ -38,8 +40,8 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rigid = GetComponent<Rigidbody2D>();
-        spawnTransform = GameObject.Find("Spawn").transform;
         gameManager = FindObjectOfType<GameManager>();
+        gameManager.updatePayerTextLife(life);
 	}
 	
 	// Update is called once per frame
@@ -59,15 +61,21 @@ public class PlayerController : MonoBehaviour {
 	}
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == "Limit") {
-            transform.position = spawnTransform.position;
-            gameManager.takeDamage();
-        }
+        outOfWorld(collision);
+        takeDamage();
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "BulletEnemy")
-            gameManager.takeDamage();
+            takeDamage();
+    }
+
+    private void takeDamage() {
+        life--;
+        gameManager.updatePayerTextLife(life);
+
+        if (life <= 0)
+            gameManager.playerIsDead();
     }
 
     private void Fire() {

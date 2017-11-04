@@ -51,4 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59b4d47582f9274ba4884a56da65c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLife: {fileID: 0}
+  playerTextLife: {fileID: 0}
