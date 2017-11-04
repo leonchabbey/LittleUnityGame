@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    [Header("Stats")]
-    [SerializeField]
-    private float health = 10;
-
     [Header("Physics")]
     [SerializeField]
     private float force = 10;
@@ -77,6 +73,7 @@ public class PlayerController : MonoBehaviour {
     private void Fire() {
         if(Time.realtimeSinceStartup - lastTimeFire > timeToFire) {
             GameObject bullet = Instantiate(bulletPrefab, gunTransform.position, gunTransform.rotation);
+            bullet.tag = "BulletPlayer";
             bullet.GetComponent<Rigidbody2D>().velocity = gunTransform.right * bulletVelocity;
             Destroy(bullet, 5);
             lastTimeFire = Time.realtimeSinceStartup;

@@ -33,6 +33,7 @@ public class EnemyController : MonoBehaviour {
 
             foreach(Transform gun in gunTransformList) {
                 GameObject bullet = Instantiate(bulletPrefab, gun.position, gun.rotation);
+                bullet.tag = "BulletEnemy";
                 bullet.GetComponent<Rigidbody2D>().velocity = gun.right * bulletVelocity;
                 Destroy(bullet, 5);
             }
