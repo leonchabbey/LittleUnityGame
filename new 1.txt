@@ -1,8 +1,0 @@
-- Monstre meurt après s'être pris x balles
-- Le joueur peut aussi mourrir en se prenant x balles (pas ses propres balles)
-- Quand une boule sort de l'écran elle se Destroy
-- Quand une boule touche quelque chose elle se Destroy
-- Quand le monstre se prend une balle, il clignote de couleurs
-	- Moins il a de vies plus il va clignoter lorsqu'il se prend une balle
-- Quand le joueur ramasse une pièce il prend un point de vie
-- Faire une scène de start, avec un bouton pour charger le niveau
