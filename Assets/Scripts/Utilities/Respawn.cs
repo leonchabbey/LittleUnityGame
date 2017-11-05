@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,9 +9,11 @@ public class Respawn : MonoBehaviour {
     [SerializeField]
     private GameObject spawn;
 
-    public void outOfWorld(Collider2D collision) {
+    public void outOfWorld(Collider2D collision, Action callback = null) {
         if (collision.tag == "WorldLimit") {
             respawn();
+            if (callback != null)
+                callback();
         }
     }
 
