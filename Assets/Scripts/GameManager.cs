@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour {
     }
 
     public void addEnemy(EnemyController enemy) {
-        Debug.Log(enemy);
         enemies.Add(enemy);
     }
 

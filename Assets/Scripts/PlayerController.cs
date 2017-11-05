@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : EntityController {
+public class PlayerController : MonoBehaviour {
 
     [Header("Stats")]
     [SerializeField]
@@ -34,12 +34,13 @@ public class PlayerController : EntityController {
     private float lastTimeFire;
 
     private Rigidbody2D rigid;
-
     private GameManager gameManager;
+    private Respawn respawn;
 
 	// Use this for initialization
 	void Start () {
         rigid = GetComponent<Rigidbody2D>();
+        respawn = GetComponent<Respawn>();
         gameManager = FindObjectOfType<GameManager>();
         gameManager.updatePayerTextLife(life);
 	}
@@ -61,7 +62,7 @@ public class PlayerController : EntityController {
 	}
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        outOfWorld(collision);
+        respawn.outOfWorld(collision);
         takeDamage();
     }
 

@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour {
 
+    OutOfScreen outOfScreen;
+
+    private void Start() {
+        outOfScreen = GetComponent<OutOfScreen>();
+    }
+
+    private void Update() {
+        if (!outOfScreen.isInCameraView()) {
+            Destroy(gameObject);
+        }
+            
+    }
+
     private void OnCollisionEnter2D(Collision2D collision) {
         switch(gameObject.tag) {
             case "BulletEnemy":

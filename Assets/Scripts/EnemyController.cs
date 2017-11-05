@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : EntityController {
+public class EnemyController : MonoBehaviour {
 
     [Header("Stats")]
     [SerializeField]
@@ -22,9 +22,11 @@ public class EnemyController : EntityController {
     private float lastTimeFire;
 
     private GameManager gameManager;
+    private Respawn respawn;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
+        respawn = GetComponent<Respawn>();
         gameManager = FindObjectOfType<GameManager>();
         gameManager.addEnemy(this);
         StartCoroutine(Fire());
@@ -64,6 +66,6 @@ public class EnemyController : EntityController {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        outOfWorld(collision);
+        respawn.outOfWorld(collision);
     }
 }
