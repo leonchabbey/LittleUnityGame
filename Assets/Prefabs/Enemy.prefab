@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114933022378825334}
   - component: {fileID: 50810719530081046}
   - component: {fileID: 60679160516019628}
+  - component: {fileID: 114406914693808408}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -95,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1027990369587482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.003, y: -0.7, z: 0}
+  m_LocalPosition: {x: 3.02, y: -0.68814325, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4284116240458322}
@@ -177,6 +178,18 @@ PolygonCollider2D:
     - - {x: 0, y: 0.5}
       - {x: -0.4330127, y: -0.25000003}
       - {x: 0.43301272, y: -0.24999996}
+--- !u!114 &114406914693808408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1027990369587482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16c96dea82f34e479d3e82b24c717e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawn: {fileID: 0}
 --- !u!114 &114933022378825334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,8 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99dec096ddaa7774d8c21981c03e663f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn: {fileID: 0}
-  camera: {fileID: 0}
   life: 5
   bulletPrefab: {fileID: 1508545610764160, guid: ba8367fedfdff0749823fa11fdd007d4,
     type: 2}

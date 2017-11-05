@@ -39,7 +39,8 @@ public class EnemyController : MonoBehaviour {
     void Start() {
         respawn = GetComponent<Respawn>();
         gameManager = FindObjectOfType<GameManager>();
-        spriteRenderer = FindObjectOfType<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         gameManager.addEnemy(this);
 
         StartCoroutine(Fire());
@@ -72,7 +73,6 @@ public class EnemyController : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "BulletPlayer")
             takeDamage();
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

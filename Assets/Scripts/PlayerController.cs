@@ -63,12 +63,21 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         respawn.outOfWorld(collision);
-        takeDamage();
+
+        if (collision.tag == "Heart") {
+            lifeUp();
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "BulletEnemy")
-            takeDamage();
+            takeDamage();  
+    }
+
+    private void lifeUp() {
+        life++;
+        gameManager.updatePayerTextLife(life);
     }
 
     private void takeDamage() {

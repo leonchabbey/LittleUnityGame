@@ -8,6 +8,7 @@ TagManager:
   - BulletPlayer
   - Enemy
   - WorldLimit
+  - Heart
   layers:
   - Default
   - TransparentFX
